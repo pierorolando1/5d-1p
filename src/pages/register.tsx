@@ -124,7 +124,7 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
 
     const generateRecaptcha = () => {
         (window as any).recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-            'size': 'invisible',
+            'size': 'visible',
             'callback': (response: any) => {
               console.log(response)
             },
@@ -162,6 +162,22 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
                 label="Codigo de verificacion" 
                 placeholder="Ejem. '333333'" size="md"
             />
+            <Button 
+            onClick={() => {
+                generateRecaptcha()
+
+                let appVerifier = (window as any).recaptchaVerifier;
+        
+                signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+                    .then((confirmationResult) => {
+                        (window as any).confirmationResult = confirmationResult;
+                        // ...
+                    }).catch((error) => {
+                        console.log(error)
+                    });
+
+            }}
+            size='xs'>No has recibido el codigo? Reenviar</Button>
             <Button
             disabled={code.length !== 6}
             onClick={() => {
