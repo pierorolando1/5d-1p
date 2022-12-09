@@ -7,7 +7,7 @@ const Claim = () => {
     let { hash } = useParams();
 
     return (
-        <div>Caramelo valido para {decrypt(hash)}</div>
+        <div>Caramelo valido para {decrypt(hash!)}</div>
     )
 }
 
