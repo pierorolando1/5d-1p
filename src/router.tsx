@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { auth, db } from "./firebase";
 import { userAlredyVoted } from "./helpers";
+import Claim from "./pages/claim";
 import Poll from "./pages/poll";
 import { AuthPage } from "./pages/register";
 import Thanks from "./pages/thanks";
@@ -84,5 +85,9 @@ export const router = createBrowserRouter([
     {
         path: "/welcome",
         element: <Welcome />
+    },
+    {
+        path: "/t/:hash",
+        element: <Claim />
     }
 ])
