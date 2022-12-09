@@ -162,6 +162,9 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
                 label="Codigo de verificacion" 
                 placeholder="Ejem. '333333'" size="md"
             />
+            {
+             /*
+             
             <Button 
             onClick={() => {
                 generateRecaptcha()
@@ -178,6 +181,8 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
 
             }}
             size='xs'>No has recibido el codigo? Reenviar</Button>
+                        */   
+                       }
             <Button
             disabled={code.length !== 6}
             onClick={() => {
