@@ -22,7 +22,10 @@ const Thanks = () => {
             style={{
                 height: "100vh",
                 position: "relative",
-                backgroundImage: "url(https://www.telegraph.co.uk/content/dam/football/2022/05/02/TELEMMGLPICT000294548712_trans_NvBQzQNjv4BqsT8WkHhIIGcqf-eU4anH8Rk1mDTumCeH_NeArSD702I.jpeg)"
+                backgroundImage: "url(https://res.cloudinary.com/piero-rolando/image/upload/v1670635374/qc_ye8dqa.jpg)",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover"
             }}
         >
             <motion.div
