@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth'
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';

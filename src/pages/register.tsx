@@ -203,6 +203,7 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
                 }).catch((e) => {
                     setError(true)
                     setLoading(false)
+                    console.log(e)
                 });
             }} fullWidth mt="xl" size="md">Votar</Button>
         </>
