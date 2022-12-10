@@ -7,6 +7,7 @@ import { auth, db } from "./firebase";
 import { userAlredyVoted } from "./helpers";
 import Claim from "./pages/claim";
 import Poll from "./pages/poll";
+import Realtime from "./pages/realtime";
 import { AuthPage } from "./pages/register";
 import Thanks from "./pages/thanks";
 import Welcome from "./pages/welcome";
@@ -89,5 +90,9 @@ export const router = createBrowserRouter([
     {
         path: "/t/:hash",
         element: <Claim />
+    },
+    {
+        path: "/realtime",
+        element: <Realtime />
     }
 ])

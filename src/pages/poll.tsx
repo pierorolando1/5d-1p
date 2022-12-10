@@ -131,7 +131,7 @@ const Poll = () => {
               style={{
                 width: "100%",
               }}
-              maxDropdownHeight={450}
+              maxDropdownHeight={340}
               searchable
               placeholder="Pick one"
               label="Selecciona un pendejo"
