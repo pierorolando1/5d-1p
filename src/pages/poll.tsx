@@ -1,5 +1,5 @@
 import { Button, Loader, Select, Space, Title } from '@mantine/core'
-import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore/lite'
+import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { OPTIONS } from '../const'
 import { auth, db } from '../firebase'
