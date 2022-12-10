@@ -1,6 +1,6 @@
 import { Loader } from "@mantine/core";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore/lite";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { auth, db } from "./firebase";
