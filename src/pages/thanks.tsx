@@ -33,6 +33,7 @@ const Thanks = () => {
                     position: "absolute",
                     top: 0,
                     left: 0,
+                    padding: "0.5rem",
                     width: "100%",
                     height: "100vh",
                     backgroundColor: "rgba(0,0,0,0.8)",
@@ -47,7 +48,7 @@ const Thanks = () => {
             >
 
                 <Title>Gracias por votar!</Title>
-                <Text>Tomale un screenshot a esto y reclama un caramelo!</Text>
+                <Text align='center'>Tomale un screenshot a esto y reclama un caramelo!</Text>
 
                 <Space h="xl" />
                 {

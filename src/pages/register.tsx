@@ -155,6 +155,7 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
 
     const [code, setCode] = useState("")
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     return (
         <>
@@ -166,6 +167,7 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
                 label="Codigo de verificacion" 
                 placeholder="Ejem. '333333'" size="md"
             />
+            <Text size="xs">El codigo sera enviado despues de ser llenado el reCAPTCHA</Text>
             {
              /*
              
@@ -188,17 +190,19 @@ const VerificationCode = ({ phoneNumber }: { phoneNumber: string }) => {
                         */   
                        }
             <Button
+            loading={loading}
             disabled={code.length !== 6}
             onClick={() => {
+                setLoading(true);
                 ((window as any).confirmationResult as ConfirmationResult)
                 .confirm(code).then((result) => {
                     const user = result.user;
                     console.log(user)
 
                     navigate("/welcome")
-                    // ...
                 }).catch((e) => {
                     setError(true)
+                    setLoading(false)
                 });
             }} fullWidth mt="xl" size="md">Votar</Button>
         </>
