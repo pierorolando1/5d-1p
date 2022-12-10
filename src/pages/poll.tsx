@@ -118,7 +118,8 @@ const Poll = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              padding: "0 20px"
             }}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}

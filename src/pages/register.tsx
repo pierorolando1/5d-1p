@@ -18,7 +18,10 @@ const useStyles = createStyles((theme) => ({
         height: '100vh',
         backgroundSize: 'cover',
         backgroundImage:
-            'url(https://images.unsplash.com/photo-1484242857719-4b9144542727?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80)',
+            'url(https://res.cloudinary.com/piero-rolando/image/upload/v1670634826/5deinos_vqwhwh.jpg)',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+
     },
 
     form: {
@@ -31,6 +34,7 @@ const useStyles = createStyles((theme) => ({
         [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
             maxWidth: '100%',
         },
+        background: "#1A1B1ED4"
     },
 
     title: {
@@ -48,7 +52,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function AuthPage() {
-    const [modalOpen, setModalOpen] = useState(false)
+    const [modalOpen, setModalOpen] = useState(true)
     const [loadingbutton, setloadingbutton] = useState(false)
     const { classes } = useStyles();
 
