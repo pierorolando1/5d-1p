@@ -18,7 +18,7 @@ const useStyles = createStyles((theme) => ({
         height: '100vh',
         backgroundSize: 'cover',
         backgroundImage:
-            'url(https://res.cloudinary.com/piero-rolando/image/upload/v1670634826/5deinos_vqwhwh.jpg)',
+            'url(https://res.cloudinary.com/piero-rolando/image/upload/v1670737305/ronert_llz1mw.jpg)',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
 
