@@ -1,4 +1,4 @@
-import { Chip, Loader, Progress, RingProgress, SegmentedControl, Space, Text } from '@mantine/core'
+import { Chip, Loader, Progress, SegmentedControl, Space, Text } from '@mantine/core'
 import { doc, onSnapshot, query, collection, getDocs, orderBy } from "firebase/firestore";
 import { db } from '../firebase';
 import { motion } from 'framer-motion';
@@ -46,11 +46,11 @@ export const options = {
 };
 
 const getAllPollsIds = async () => {
-    const res: { id: string, title: string }[] = []
+    const res: { id: string, title: string, open?: boolean }[] = []
 
     const querySnapshot = await getDocs(collection(db, "poll"));
     querySnapshot.forEach((doc) => {
-        res.push({ id: doc.id, title: doc.data().title })
+        res.push({ id: doc.id, title: doc.data().title, open: doc.data().open })
     });
 
     return res
@@ -192,7 +192,7 @@ const Votantes = () => {
 }
 
 const Resultados = () => {
-    const [polls, setPolls] = useState<{ id: string, title: string }[]>([])
+    const [polls, setPolls] = useState<{ id: string, title: string, open?: boolean }[]>([])
 
     useEffect(() => {
         getAllPollsIds().then(async (res) => {
@@ -214,6 +214,7 @@ const Resultados = () => {
             </div> :
                 polls.map((poll) => {
                     return <Fragment key={poll.id}>
+                        <Text weight={'bold'} color={ poll.open == true ? "aqua" : "hotpink"}>{poll.open == true ? "En vivo" : "Votacion cerrada." }</Text>
                         <PollResult pollId={poll.id} pollTitle={poll.title} />
                         <div style={{ height: "7rem" }} />
                     </Fragment>

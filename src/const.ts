@@ -34,3 +34,44 @@ export const OPTIONS = [
 "Silva Jhonny",
 "Vivanco Floriza",
 "Zamora Juan"]
+
+
+export const BOYS = [
+"Aguilar Diego",
+"Alfaro Brian",
+"Barrera Yoshi",
+"Bermudez Hugo",
+"Grandes Gianfranco",
+"Gonzalez Patrick",
+"Gutierrez Emmanuel",
+"Franco Bryan",
+"Medina Carlos",
+"Nunez Edward",
+"Nolasco Juanjo",
+"Espinoza Yosi",
+"Meneses Rodrigo",
+"Requejo Leo",
+"Rojas Carlos",
+"Rolando Piero",
+"Salazar Luis",
+"Saldana Eliseo",
+"Urbina Jose",
+"Silva Jhonny",
+"Zamora Juan"]
+
+
+export const GIRLS = [ 
+"Aguilar Anto",
+"Edwards Carolina",
+"Gonzalez Naomi",
+"Legoas Angelina",
+"Martinez Yatana",
+"Padilla Kenia",
+"Lozano Emily",
+"Pelaez Ingrid",
+"Pinas Lucero",
+"Rodriguez Myrella",
+"Sotelo Jhomayra",
+"Vargas Sasha",
+"Montoya Maribella",
+"Vivanco Floriza"]

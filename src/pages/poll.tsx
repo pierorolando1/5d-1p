@@ -1,7 +1,7 @@
 import { Button, Loader, Select, Space, Title } from '@mantine/core'
 import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { OPTIONS } from '../const'
+import { BOYS, GIRLS, OPTIONS } from '../const'
 import { auth, db } from '../firebase'
 
 import { motion } from "framer-motion"
@@ -10,7 +10,10 @@ import { signOut } from 'firebase/auth'
 
 type Poll = {
   id: string
-  title: string
+  title: string,
+  open: boolean,
+  type?: "all" | "boys" | "girls" | "custom",
+  alternatives?: string[]
 }
 
 const getPools = async () => {
@@ -19,10 +22,14 @@ const getPools = async () => {
   const polls: Poll[] = []
 
   querySnapshot.forEach((doc) => {
-    polls.push({
-      id: doc.id,
-      title: doc.data().title,
-    })
+
+    if (doc.data().open == true) {
+      polls.push({
+        id: doc.id,
+        title: doc.data().title,
+        ...doc.data() as any
+      })
+    }
   })
 
   return polls
@@ -136,10 +143,15 @@ const Poll = () => {
               placeholder="Pick one"
               label="Selecciona un pendejo"
               data={
-                OPTIONS.map((option) => ({
-                  label: option,
-                  value: option,
-                }))
+                currentPoll?.type === "all"
+                  ? OPTIONS.map((option) => ({ label: option, value: option }))
+                  : currentPoll?.type === "boys"
+                    ? BOYS.map((option) => ({ label: option, value: option }))
+                    : currentPoll?.type == "girls"
+                      ? GIRLS.map((option) => ({ label: option, value: option }))
+                      : currentPoll?.type === "custom" && currentPoll?.alternatives
+                        ? currentPoll?.alternatives.map((option) => ({ label: option, value: option }))
+                        : OPTIONS.map((option) => ({ label: option, value: option }))
               }
 
               onChange={(value) => {
