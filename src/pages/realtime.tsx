@@ -1,4 +1,4 @@
-import { Chip, Loader, RingProgress, SegmentedControl, Space, Text } from '@mantine/core'
+import { Chip, Loader, Progress, RingProgress, SegmentedControl, Space, Text } from '@mantine/core'
 import { doc, onSnapshot, query, collection, getDocs, orderBy } from "firebase/firestore";
 import { db } from '../firebase';
 import { motion } from 'framer-motion';
@@ -109,6 +109,7 @@ const Realtime = () => {
 const Votantes = () => {
 
     const [dudes, setDudes] = useState<{ name: string, voted: boolean }[]>([])
+    const [alredyVoted, setAlredyVoted] = useState(0)
 
     const getAllSorted = async () => {
         const q = query(collection(db, "dudes"));
@@ -116,8 +117,14 @@ const Votantes = () => {
         onSnapshot(
             q,
             (query) => {
+                setAlredyVoted(0)
                 const data: { name: string, voted: boolean }[] = []
                 query.forEach((doc) => {
+
+                    if (doc.data().voted == true) {
+                        setAlredyVoted(v => v + 1)
+                    }
+
                     data.push({ name: doc.data().name, voted: doc.data().voted })
                 }
                 );
@@ -137,6 +144,19 @@ const Votantes = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
     >
+        <div>
+            {
+                // x/100 * 35 = alredyVoted
+                // x = alredyVoted * 100 / 35
+                    <Progress
+                    radius="xl"
+                    size={24}
+                    sections={[
+                      { value: ( alredyVoted * 100 / 35 ), color: 'cyan', tooltip: `${ alredyVoted } votos`, label: `${Math.round( alredyVoted * 100 / 35) }%` },
+                    ]}
+                  />
+            }
+        </div>
 
         {
             dudes?.length === 0 ? <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
